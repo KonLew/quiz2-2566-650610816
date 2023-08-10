@@ -41,6 +41,7 @@ export const Comment = ({
           username={re.username}
           replyText={re.replyText}
           likeNum={re.likeNum}
+          key={re.username}
         ></Reply>
       ))}
     </div>

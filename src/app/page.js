@@ -98,6 +98,7 @@ export default function HomePage() {
             commentText={com.commentText}
             likeNum={com.likeNum}
             replies={com.replies}
+            key={com.username}
           ></Comment>
         ))}
       </div>
