@@ -1,5 +1,10 @@
 "use client";
 
+import { PostOwner } from "@/components/PostOwner";
+import { Comment } from "@/components/Comment";
+import { comments } from "@/libs/comments";
+import { useState } from "react";
+
 export default function HomePage() {
   return (
     <div
@@ -12,7 +17,7 @@ export default function HomePage() {
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
         {/* Post Owner Example*/}
-        <div className="vstack gap-3">
+        {/* <div className="vstack gap-3">
           <div className="d-flex align-items-center gap-3">
             <img
               src="/profileImages/handsome.jpg"
@@ -31,10 +36,16 @@ export default function HomePage() {
             <span className="text-muted">100 คน</span>
           </div>
           <hr className="m-0 border" />
-        </div>
-
+        </div> */}
+        <PostOwner
+          name="Surangrat Teymeesak"
+          id="650610816"
+          msg="Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207"
+          pic="/profileImages/catisme.jpg"
+          like="669"
+        ></PostOwner>
         {/* Comment Example */}
-        <div className="d-flex gap-2 my-2">
+        {/* <div className="d-flex gap-2 my-2">
           <img
             src="/profileImages/lisa.jpg"
             width="48"
@@ -54,10 +65,10 @@ export default function HomePage() {
               <span className="text-muted">999 คน</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Reply Example */}
-        <div className="d-flex gap-2 my-2 ps-5">
+        {/* <div className="d-flex gap-2 my-2 ps-5">
           <img
             src="/profileImages/puppy.jpg"
             width="48"
@@ -77,9 +88,18 @@ export default function HomePage() {
               <span className="text-muted">2 คน</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* map-loop render Comment component here */}
+        {comments.map((com) => (
+          <Comment
+            userImagePath={com.userImagePath}
+            username={com.username}
+            commentText={com.commentText}
+            likeNum={com.likeNum}
+            replies={com.replies}
+          ></Comment>
+        ))}
       </div>
     </div>
   );
